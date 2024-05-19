@@ -5,7 +5,7 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
 
-    width: 80%;
+    width: 400px;
     height: 70%;
 
 
@@ -37,8 +37,8 @@
 }
 
 .buttons > button {
-    height: 16.32%;
-    width: 23.67%;
+    height: 16.5%;
+    width: 23.5%;
     margin-bottom: 0.2%;
     margin-top: 0.2%;
 }
