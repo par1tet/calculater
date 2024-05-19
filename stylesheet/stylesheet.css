@@ -9,7 +9,7 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 
-    width: 400px;
+    width: 600px;
     height: 70%;
 
     background-color: rgb(252, 255, 0);
@@ -21,13 +21,14 @@ body {
 #answer {
     padding-left: 2px;
     padding-right: 2px;
-    font-size: 60px;
+    font-size: 400%;
     color: rgb(255, 255, 120);
+    font-family:'Times New Roman', Times, serif
 }
 
 .answer_container {
     width: 97%;
-    height: 18%;
+    height: 12%;
     margin-bottom: 1%;
     margin-top: 1%;
     margin-left: 1.5%;
@@ -39,15 +40,15 @@ body {
 .buttons{
     padding-left: 1.5%;
     padding-right: 1.5%;
-    height: 80%;
+    height: 82%;
     width: 100%;
 }
 
 .buttons > button {
-    height: 16.25%;
-    width: 23.5%;
+    height: 16.5%;
+    width: 23.8%;
     margin-bottom: 0.5%;
-    margin-top: 0.3%;
+    margin-top: 0.4%;
     border: 0;
     border-radius: 5px;
     background: rgb(255, 131, 0);

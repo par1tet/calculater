@@ -23,6 +23,9 @@ document.querySelector('#bt_poi').onclick = bt_poi
 document.querySelector('#bt_del').onclick = bt_del
 document.querySelector('#bt_cel').onclick = bt_cel
 
+document.querySelector('#bt_sin').onclick = bt_sin
+document.querySelector('#bt_cos').onclick = bt_cos
+
 answer_text = document.querySelector('#answer')
 
 let first_number = 'noth';
@@ -36,7 +39,7 @@ function bt_numb(num){
         answer_text.textContent = num
         operand = ''
     }else{
-        if (answer_text.textContent.length >= 13){
+        if (answer_text.textContent.length >= 18){
             return 0
         }
         answer_text.textContent += num
@@ -61,9 +64,15 @@ function bt_9(){bt_numb('9')}
 function bt_0(){bt_numb('0')}
 
 function bt_plu(){bt_oper('+')}
-function bt_def(){bt_oper('-')}
 function bt_mlt(){bt_oper('*')}
 function bt_div(){bt_oper('/')}
+function bt_def(){
+    if (answer_text.textContent === ''){
+        answer_text.textContent = '-';
+        return 0;
+    }
+    bt_oper('-')
+}
 
 function bt_eql() {
     if (first_number === 'noth' || answer_text.textContent === ''){
@@ -88,7 +97,7 @@ function bt_eql() {
             sum = first_number * second_number
             break;
     }
-    answer_text.textContent = (sum.toString()).slice(0,13)
+    answer_text.textContent = (sum.toString()).slice(0,18)
     setTimeout(() => {answer_text.style.display = 'block'}, 55)
     first_number = 'noth'
     second_number = 'noth'
@@ -114,4 +123,13 @@ function bt_cel() {
         first_number = 'noth'
         second_number = 'noth'
     }
+}
+
+function bt_sin() {
+    answer_text.textContent = (Math.sin((+answer_text.textContent))+'').slice(0,18)
+}
+
+function bt_cos() {
+    answer_text.textContent = (Math.cos((+answer_text.textContent))+'').slice(0,18)
+
 }
