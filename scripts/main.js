@@ -14,7 +14,7 @@ document.querySelector('#bt_0').onclick = bt_0
 
 document.querySelector('#bt_def').onclick = bt_def
 document.querySelector('#bt_div').onclick = bt_div
-document.querySelector('#bt_mult').onclick = bt_mult
+document.querySelector('#bt_mult').onclick = bt_mlt
 document.querySelector('#bt_plu').onclick = bt_plu
 
 document.querySelector('#bt_eql').onclick = bt_eql
@@ -29,156 +29,41 @@ let first_number = 'noth';
 let second_number = 'noth';
 let operand = '';
 
-function bt_1() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
+function bt_numb(num){
     if (answer_text.textContent == ''){
-        answer_text.textContent = '1'
+        answer_text.textContent = num
     }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '1'
+        answer_text.textContent = num
         operand = ''
     }else{
-        answer_text.textContent += '1'
-    }
-}
-function bt_2() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '2'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '2'
-        operand = ''
-    }else{
-        answer_text.textContent += '2'
-    }
-}
-function bt_3() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '3'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '3'
-        operand = ''
-    }else{
-        answer_text.textContent += '3'
+        if (answer_text.textContent.length >= 13){
+            return 0
+        }
+        answer_text.textContent += num
     }
 }
 
-function bt_4() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '4'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '4'
-        operand = ''
-    }else{
-        answer_text.textContent += '4'
-    }
-}
-function bt_5() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '5'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '5'
-        operand = ''
-    }else{
-        answer_text.textContent += '5'
-    }
-}
-function bt_6() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '6'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '6'
-        operand = ''
-    }else{
-        answer_text.textContent += '6'
-    }
+function bt_oper(operand_get){
+    first_number = (+answer_text.textContent)
+    answer_text.textContent = ''
+    operand = operand_get
 }
 
-function bt_7() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '7'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '7'
-        operand = ''
-    }else{
-        answer_text.textContent += '7'
-    }
-}
-function bt_8() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '8'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '8'
-        operand = ''
-    }else{
-        answer_text.textContent += '8'
-    }
-}
-function bt_9() {
-    if (answer_text.textContent.length >= 13){
-        return 0
-    }
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '9'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '9'
-        operand = ''
-    }else{
-        answer_text.textContent += '9'
-    }
-}
+function bt_1(){bt_numb('1')}
+function bt_2(){bt_numb('2')}
+function bt_3(){bt_numb('3')}
+function bt_4(){bt_numb('4')}
+function bt_5(){bt_numb('5')}
+function bt_6(){bt_numb('6')}
+function bt_7(){bt_numb('7')}
+function bt_8(){bt_numb('8')}
+function bt_9(){bt_numb('9')}
+function bt_0(){bt_numb('0')}
 
-function bt_0() {
-    if (answer_text.textContent == ''){
-        answer_text.textContent = '0'
-    }else if (operand != '' && first_number === 'noth'){
-        answer_text.textContent = '0'
-        operand = ''
-    }else{
-        answer_text.textContent += '0'
-    }
-}
-function bt_plu() {
-    first_number = (+answer_text.textContent)
-    answer_text.textContent = ''
-    operand = '+'
-}
-function bt_def() {
-    first_number = (+answer_text.textContent)
-    answer_text.textContent = ''
-    operand = '-'
-}
-function bt_mult() {
-    first_number = (+answer_text.textContent)
-    answer_text.textContent = ''
-    operand = '*'
-}
-function bt_div() {
-    first_number = (+answer_text.textContent)
-    answer_text.textContent = ''
-    operand = '/'
-}
+function bt_plu(){bt_oper('+')}
+function bt_def(){bt_oper('-')}
+function bt_mlt(){bt_oper('*')}
+function bt_div(){bt_oper('/')}
 
 function bt_eql() {
     if (first_number === 'noth' || answer_text.textContent === ''){
@@ -188,20 +73,22 @@ function bt_eql() {
     }
     second_number = (+answer_text.textContent)
     answer_text.style.display = 'none'
+    let sum = 0
     switch (operand){
         case '+':
-            answer_text.textContent = first_number + second_number
+            sum = first_number + second_number
             break;
         case '-':
-            answer_text.textContent = first_number - second_number
+            sum = first_number - second_number
             break;
         case '/':
-            answer_text.textContent = first_number / second_number
+            sum = first_number / second_number
             break;
         case '*':
-            answer_text.textContent = first_number * second_number
+            sum = first_number * second_number
             break;
     }
+    answer_text.textContent = (sum.toString()).slice(0,13)
     setTimeout(() => {answer_text.style.display = 'block'}, 55)
     first_number = 'noth'
     second_number = 'noth'
@@ -213,7 +100,7 @@ function bt_poi() {
 }
 
 function bt_del() {
-    if (answer_text.textContent == 'Enter numbers'){}
+    if (answer_text.textContent == ''){bt_cel()}
     else{
         answer_text.textContent = answer_text.textContent.slice(0,-1)
     }
